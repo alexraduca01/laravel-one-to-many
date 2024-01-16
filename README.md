@@ -203,3 +203,22 @@ Route::fallback(function() {
 });
 
 ```
+
+## Relations
+
+```bash
+#migration di esempio
+
+#up
+Schema::table('projects', function (Blueprint $table) {
+    $table->unsignedBigInteger('user_id');
+    $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+});
+# shortcut 
+$table->foreignId('user_id')->constrained()->cascadeOnDelete();
+#down
+Schema::table('projects', function (Blueprint $table) {
+    $table->dropColumn('user_id');
+    $table->dropForeign('projects_user_id_foreign');
+});
+```
