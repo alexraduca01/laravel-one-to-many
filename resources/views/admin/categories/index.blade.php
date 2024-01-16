@@ -18,6 +18,8 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">Name</th>
+                                <th class="text-center">Created At</th>
+                                <th class="text-center">Last Update</th>
                                 <th class="text-center">Settings</th>
                             </tr>
                         </thead>
@@ -26,6 +28,8 @@
                                 <tr>
                                     <td class="text-center">#{{ $item->id }}</td>
                                     <td class="text-center"><a class="text-white text-decoration-none " href="{{ route('admin.categories.show', $item->slug) }}">{{ $item->name }}</a></td>
+                                    <td class="text-center">{{ $item->created_at }}</td>
+                                    <td class="text-center">{{ $item->updated_at }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('admin.categories.edit', $item->slug) }}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
                                         <a href="{{ route('admin.categories.show', $item->slug) }}" class="btn btn-success"><i class="fa-solid fa-eye"></i></a>

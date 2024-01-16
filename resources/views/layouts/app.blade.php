@@ -23,7 +23,7 @@
     <div id="app">
         @include('partials.header')
         @include('partials.sidebar')
-        <main class="w-100" style="background-color: #1a1b41; height: calc(100vh - 100px)">
+        <main class="w-100 overflow-y-auto" style="background-color: #1a1b41; height: calc(100vh - 100px)">
             @yield('content')
         </main>
     </div>
