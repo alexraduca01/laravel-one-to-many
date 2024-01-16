@@ -81,11 +81,15 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $formData = $request->validated();
-        if ($project->title !== $formData['title']) {
-            $slug = Str::slug($formData['title']);
-        }
         // add slug to formData
-        $formData['slug'] = $slug;
+        $formData['slug'] = $project->slug;
+        if ($project->title !== $formData['title']) {
+            // create slug
+            $slug = Project::getSlug($formData['title']);
+            $formData['slug'] = $slug;
+        }
+
+
 
         // add owners id to formData
         $formData['user_id'] = $project->user_id;

@@ -2,7 +2,7 @@
 @section('content')
     <section class="container py-2 text-white">
         <h1>EDIT {{ $project->title }}</h1>
-        <form action="{{ route('admin.projects.update', $project->id) }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('admin.projects.update', $project->slug) }}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
